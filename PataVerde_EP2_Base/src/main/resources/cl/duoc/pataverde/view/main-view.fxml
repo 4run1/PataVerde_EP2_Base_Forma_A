@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="cl.duoc.pataverde.controller.MainController">
+
+    <top>
+        <VBox spacing="8" alignment="CENTER">
+            <padding>
+                <Insets top="20" right="20" bottom="15" left="20"/>
+            </padding>
+
+            <Label text="CLÍNICA VETERINARIA PATAVERDE"
+                   style="-fx-font-size: 22px; -fx-font-weight: bold;"/>
+
+            <Label text="Registro y administración de mascotas"
+                   style="-fx-font-size: 14px;"/>
+        </VBox>
+    </top>
+
+    <center>
+        <VBox spacing="15">
+            <padding>
+                <Insets top="10" right="20" bottom="10" left="20"/>
+            </padding>
+
+            <Label text="Datos de la mascota"
+                   style="-fx-font-size: 17px; -fx-font-weight: bold;"/>
+
+            <GridPane hgap="12" vgap="12">
+
+                <Label text="Tipo de mascota:"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="0"/>
+
+                <ComboBox fx:id="cmbTipo"
+                          promptText="Seleccione tipo"
+                          prefWidth="180"
+                          GridPane.columnIndex="1"
+                          GridPane.rowIndex="0"/>
+
+                <Label text="Nombre:"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="1"/>
+
+                <TextField fx:id="txtNombre"
+                           promptText="Nombre de la mascota"
+                           GridPane.columnIndex="1"
+                           GridPane.rowIndex="1"/>
+
+                <Label text="Edad:"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="2"/>
+
+                <TextField fx:id="txtEdad"
+                           promptText="Edad en años"
+                           GridPane.columnIndex="1"
+                           GridPane.rowIndex="2"/>
+
+                <Label text="Peso (kg):"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="3"/>
+
+                <TextField fx:id="txtPeso"
+                           promptText="Peso de la mascota"
+                           GridPane.columnIndex="1"
+                           GridPane.rowIndex="3"/>
+
+                <Label text="Raza:"
+                       GridPane.columnIndex="2"
+                       GridPane.rowIndex="1"/>
+
+                <TextField fx:id="txtRaza"
+                           promptText="Raza del perro"
+                           GridPane.columnIndex="3"
+                           GridPane.rowIndex="1"/>
+
+                <Label text="Vacunado:"
+                       GridPane.columnIndex="2"
+                       GridPane.rowIndex="2"/>
+
+                <CheckBox fx:id="chkVacunado"
+                          text="Sí"
+                          GridPane.columnIndex="3"
+                          GridPane.rowIndex="2"/>
+
+                <Label text="Disponible para adopción:"
+                       GridPane.columnIndex="2"
+                       GridPane.rowIndex="3"/>
+
+                <CheckBox fx:id="chkAdoptable"
+                          text="Sí"
+                          GridPane.columnIndex="3"
+                          GridPane.rowIndex="3"/>
+
+                <Label text="¿Vive en exterior?:"
+                       GridPane.columnIndex="2"
+                       GridPane.rowIndex="4"/>
+
+                <CheckBox fx:id="chkExterior"
+                          text="Sí"
+                          GridPane.columnIndex="3"
+                          GridPane.rowIndex="4"/>
+
+            </GridPane>
+
+            <HBox spacing="10">
+
+                <Button fx:id="btnRegistrar"
+                        text="Registrar mascota"
+                        onAction="#registrarMascota"/>
+
+                <Button fx:id="btnEliminar"
+                        text="Eliminar seleccionada"
+                        onAction="#eliminarMascota"/>
+
+                <Button fx:id="btnBuscar"
+                        text="Buscar mascotas"
+                        onAction="#abrirBusqueda"/>
+
+            </HBox>
+
+            <Label fx:id="lblMensaje"
+                   text="Ingrese los datos de la mascota."
+                   wrapText="true"
+                   style="-fx-font-size: 13px;"/>
+
+            <Label text="Mascotas registradas"
+                   style="-fx-font-size: 17px; -fx-font-weight: bold;"/>
+
+            <TableView fx:id="tablaMascotas" VBox.vgrow="ALWAYS">
+
+                <columns>
+
+                    <TableColumn fx:id="colTipo"
+                                 text="Tipo"
+                                 prefWidth="120"/>
+
+                    <TableColumn fx:id="colNombre"
+                                 text="Nombre"
+                                 prefWidth="160"/>
+
+                    <TableColumn fx:id="colEdad"
+                                 text="Edad"
+                                 prefWidth="90"/>
+
+                    <TableColumn fx:id="colPeso"
+                                 text="Peso (kg)"
+                                 prefWidth="110"/>
+
+                    <TableColumn fx:id="colCosto"
+                                 text="Costo consulta"
+                                 prefWidth="150"/>
+
+                </columns>
+
+            </TableView>
+
+        </VBox>
+    </center>
+
+</BorderPane>
